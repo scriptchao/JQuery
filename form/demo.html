@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>//encode 编码 //text/plain 纯文本 //将URL编码  //enctype="text/plain"
+<body>
+//form表单直接提交
+<form  class="form1" action="http://www.ikindness.cn/api/test/post" method="post">
+    <input name="input">
+    <input name="text">
+    <input  class="submit" type="submit" value="确认">
+    <input type="reset" >
+</form>
+
+//submit方法
+<form  class="form2" action="http://www.ikindness.cn/api/test/post" method="post">
+    <input name="input">
+    <input name="text">
+    <input class="submit" type="button" value="确认">
+    <input type="button" value="重置">
+</form>
+//ajax方法
+<form class="form3">
+    <input class="input">
+    <input class="text">
+    <input  class="submit" type="button" value="确认">
+</form>
+//serialize方法 只能是get
+<form  class="form4">
+    <input name="input">
+    <input name="text">
+    <input class="submit" type="button" value="确认">
+</form>
+<input type="button" class="submitAll" value="一键提交">
+<input type="button" class="resetAll" value="一键重置">
+</body>
+<script src="../lib/jQuery@1.12.4.min.js"></script>
+<script src="./js/demo.js"></script>
+</html>

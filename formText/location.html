@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<input type="text" class="ipt1">
+<input type="text" class="ipt2">
+
+</body>
+<script src="../lib/jQuery@1.12.4.min.js"></script>
+<script>
+    $.fn.extend({
+        queryString : function(str){
+            var strOnce = str.slice(1),
+                obj = {},
+                temp,
+                i = 0;
+            arrOnce = strOnce.split(/&/);
+            len = arrOnce.length;
+            while(i < len){
+                temp = arrOnce[i].split(/=/);
+                obj[temp[0]] = decodeURI(temp[1]);
+                i++;
+            }
+            return obj;
+        }
+    });
+    $('.ipt1').val($().queryString(location.search).name1);
+    $('.ipt2').val($().queryString(location.search).name2);
+    $('html').keydown(function(e){
+        console.log(e.keyCode);
+        if(e.keyCode == 116){
+            e.preventDefault();
+            location.search = '?name1=' + $('.ipt1').val() + '&name2=' + $('.ipt2').val()
+        }
+    })
+</script>
+</html>
+// $.fn.extend $.extend怎么理解 浏览器刷新问题 刷新了以后是不是还要运行一遍代码  重新加载和按F5的区别
+// Date问题
